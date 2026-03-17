@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="App de Cotizaciones: gestiona clientes, productos, plantillas y emite cotizaciones profesionales. Todo en una sola plataforma. Solicita demo.">
+  <title>App de Cotizaciones - Clientes, productos y cotizaciones | JJV SOLUTIONS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="index.html" class="header__logo" aria-label="JJV SOLUTIONS - Inicio">
+        <img src="assets/logo-2.png" alt="JJV SOLUTIONS - Logo" class="header__logo-img">
+      </a>
+      <button type="button" class="header__menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span class="header__menu-icon"></span>
+      </button>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
+          <li><a href="#caracteristicas" class="header__nav-link">Características</a></li>
+          <li><a href="#planes" class="header__nav-link">Planes</a></li>
+          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
+          <li><a href="index.html#saas" class="header__nav-link">Soluciones JJV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero__container">
+        <h1 class="hero__title">Cotizaciones profesionales en un solo lugar</h1>
+        <p class="hero__tagline">Gestiona clientes, productos y cotizaciones sin complicarte</p>
+        <p class="hero__subtitle">Todo en una plataforma: mantenedor de clientes, catálogo de productos o servicios, datos de tu empresa, plantillas reutilizables y cotizaciones listas para enviar.</p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn--primary hero__cta">Solicitar demo</a>
+          <a href="#caracteristicas" class="btn btn--secondary hero__cta-secondary">Ver características</a>
+        </div>
+      </div>
+      <div class="hero__pattern" aria-hidden="true"></div>
+    </section>
+
+    <section class="section section--services" id="caracteristicas">
+      <div class="container">
+        <h2 class="section__title">Todo lo que necesitas para cotizar</h2>
+        <p class="section__subtitle">Mantenedores integrados para que armes y envíes cotizaciones de forma ágil y profesional.</p>
+        <div class="services-grid">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Clientes</h3>
+            <p class="card__text">Mantenedor de clientes para tener tu cartera organizada y usarla en cada cotización sin repetir datos.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Productos y servicios</h3>
+            <p class="card__text">Catálogo de productos o servicios con precios, descripciones y unidades para armar tus cotizaciones al instante.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Datos de empresa</h3>
+            <p class="card__text">Configura razón social, contacto y logo para que todas las cotizaciones salgan con la identidad de tu empresa.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◇</div>
+            <h3 class="card__title">Plantillas</h3>
+            <p class="card__text">Plantillas reutilizables para dar formato y estructura a tus cotizaciones según el tipo de trabajo o cliente.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◇</div>
+            <h3 class="card__title">Cotizaciones</h3>
+            <p class="card__text">Crea y gestiona las cotizaciones uniendo clientes, ítems del catálogo y plantillas en un solo flujo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--saas" id="planes">
+      <div class="container">
+        <h2 class="section__title">Planes para cada necesidad</h2>
+        <p class="section__subtitle">Elige el plan que mejor se adapte a tu volumen de cotizaciones.</p>
+        <div class="plans-grid">
+          <article class="plan-card">
+            <h3 class="plan-card__name">Starter</h3>
+            <p class="plan-card__desc">Para probar o equipos que cotizan poco.</p>
+            <div class="plan-card__price">
+              <span class="plan-card__amount">Gratis</span>
+            </div>
+            <ul class="plan-card__features">
+              <li>Hasta 20 clientes</li>
+              <li>Hasta 30 productos/servicios</li>
+              <li>1 empresa y 1 plantilla</li>
+              <li>Hasta 10 cotizaciones/mes</li>
+            </ul>
+            <a href="#contacto" class="btn btn--secondary">Comenzar gratis</a>
+          </article>
+          <article class="plan-card plan-card--featured">
+            <span class="plan-card__badge">Recomendado</span>
+            <h3 class="plan-card__name">Profesional</h3>
+            <p class="plan-card__desc">Para equipos que cotizan a diario.</p>
+            <div class="plan-card__price">
+              <span class="plan-card__amount">Consultar</span>
+              <span class="plan-card__period">/mes</span>
+            </div>
+            <ul class="plan-card__features">
+              <li>Clientes y productos ilimitados</li>
+              <li>Varias plantillas</li>
+              <li>Cotizaciones ilimitadas</li>
+              <li>Exportar a PDF</li>
+              <li>Historial y búsqueda</li>
+            </ul>
+            <a href="#contacto" class="btn btn--primary">Elegir plan</a>
+          </article>
+          <article class="plan-card">
+            <h3 class="plan-card__name">Empresa</h3>
+            <p class="plan-card__desc">Soluciones a medida para organizaciones.</p>
+            <div class="plan-card__price">
+              <span class="plan-card__amount">Contactar</span>
+            </div>
+            <ul class="plan-card__features">
+              <li>Todo lo de Profesional</li>
+              <li>Multiempresa (varias razones sociales)</li>
+              <li>Marca blanca</li>
+              <li>Soporte prioritario</li>
+              <li>Integraciones a medida</li>
+            </ul>
+            <a href="#contacto" class="btn btn--secondary">Solicitar información</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contacto">
+      <div class="container">
+        <h2 class="section__title">Contacto</h2>
+        <div class="contact-content">
+          <p class="contact__intro">¿Quieres probar la App de Cotizaciones? Escríbenos o llámanos y te mostramos una demo.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-list__label">Email</span>
+              <a href="mailto:info.jjvs@gmail.com" class="contact-list__link">info.jjvs@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Teléfono</span>
+              <a href="tel:+56933481810" class="contact-list__link">+56 9 xxxxxxxx</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Horario</span>
+              <span class="contact-list__value">Lun - Vie: 9:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+          <a href="mailto:info.jjvs@gmail.com?subject=App%20Cotizaciones" class="btn btn--primary contact__cta">Solicitar demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-text">JJV SOLUTIONS</a>
+      </div>
+      <nav class="footer__nav" aria-label="Enlaces del pie">
+        <a href="#caracteristicas" class="footer__link">Características</a>
+        <a href="#planes" class="footer__link">Planes</a>
+        <a href="#contacto" class="footer__link">Contacto</a>
+      </nav>
+      <p class="footer__schedule">Lun - Vie: 9:00 AM - 6:00 PM</p>
+      <p class="footer__copy">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

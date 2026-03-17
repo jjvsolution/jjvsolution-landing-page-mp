@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reservas por WhatsApp automatizadas con n8n para pymes. Conecta con Google Calendar y Google Sheets. Peluquerías, consultas, restaurantes, talleres.">
+  <title>Reservas por WhatsApp con n8n | JJV SOLUTIONS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="index.html" class="header__logo" aria-label="JJV SOLUTIONS - Inicio">
+        <img src="assets/logo-2.png" alt="JJV SOLUTIONS - Logo" class="header__logo-img">
+      </a>
+      <button type="button" class="header__menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span class="header__menu-icon"></span>
+      </button>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list">
+          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
+          <li><a href="#como-funciona" class="header__nav-link">Cómo funciona</a></li>
+          <li><a href="#beneficios" class="header__nav-link">Beneficios</a></li>
+          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
+          <li><a href="index.html#saas" class="header__nav-link">Soluciones JJV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero__container">
+        <h1 class="hero__title">Tu negocio reserva por WhatsApp 24/7</h1>
+        <p class="hero__tagline">Reservas por WhatsApp, automatizadas</p>
+        <p class="hero__subtitle">Sin atender llamadas a mano. El cliente escribe por WhatsApp, el sistema valida horarios y registra la cita en Google Calendar y Google Sheets. Ideal para pymes: peluquerías, consultas, restaurantes, talleres.</p>
+        <a href="#contacto" class="btn btn--primary hero__cta">Quiero automatizar mis reservas</a>
+      </div>
+      <div class="hero__pattern" aria-hidden="true"></div>
+    </section>
+
+    <section class="section section--services" id="como-funciona">
+      <div class="container">
+        <h2 class="section__title">Cómo funciona</h2>
+        <div class="flow-steps">
+          <article class="flow-step">
+            <span class="flow-step__number" aria-hidden="true">1</span>
+            <h3 class="flow-step__title">WhatsApp</h3>
+            <p class="flow-step__text">El cliente escribe por WhatsApp para reservar. El flujo en n8n recibe el mensaje y procesa la solicitud.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-step__number" aria-hidden="true">2</span>
+            <h3 class="flow-step__title">n8n</h3>
+            <p class="flow-step__text">La automatización valida horarios disponibles, evita dobles reservas y envía la confirmación al cliente.</p>
+          </article>
+          <article class="flow-step">
+            <span class="flow-step__number" aria-hidden="true">3</span>
+            <h3 class="flow-step__title">Google Calendar + Sheets</h3>
+            <p class="flow-step__text">La cita se registra en Google Calendar y en una hoja de cálculo para histórico, reportes y backup.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--saas" id="beneficios">
+      <div class="container">
+        <h2 class="section__title">Beneficios para tu pyme</h2>
+        <div class="services-grid">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Reservas 24/7</h3>
+            <p class="card__text">Acepta reservas sin depender del teléfono ni del horario de atención.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Menos errores</h3>
+            <p class="card__text">Evita dobles reservas y olvidos gracias a la validación automática de horarios.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Agenda centralizada</h3>
+            <p class="card__text">Todas las citas en Google Calendar, sincronizada con tu equipo y dispositivos.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Registro en Sheets</h3>
+            <p class="card__text">Histórico y datos en Google Sheets para análisis, reportes o backup.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">◆</div>
+            <h3 class="card__title">Imagen profesional</h3>
+            <p class="card__text">Respuestas rápidas y automáticas que transmiten confianza a tus clientes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tech" id="tecnologias">
+      <div class="container">
+        <h2 class="section__title">Con qué trabaja</h2>
+        <div class="tech-list">
+          <span class="tech-badge">WhatsApp</span>
+          <span class="tech-badge">n8n</span>
+          <span class="tech-badge">Google Calendar</span>
+          <span class="tech-badge">Google Sheets</span>
+        </div>
+        <p class="section__sub">Solución de <a href="index.html">JJV SOLUTIONS</a>.</p>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contacto">
+      <div class="container">
+        <h2 class="section__title">Contacto</h2>
+        <div class="contact-content">
+          <p class="contact__intro">¿Quieres automatizar las reservas de tu negocio? Escríbenos o llámanos.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-list__label">Email</span>
+              <a href="mailto:info.jjvs@gmail.com" class="contact-list__link">info.jjvs@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Teléfono</span>
+              <a href="tel:+56933481810" class="contact-list__link">+56 9 xxxxxxxx</a>
+            </li>
+            <li>
+              <span class="contact-list__label">Horario</span>
+              <span class="contact-list__value">Lun - Vie: 9:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+          <a href="mailto:info.jjvs@gmail.com?subject=Reservas%20WhatsApp%20n8n" class="btn btn--primary contact__cta">Solicitar demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo-text">JJV SOLUTIONS</a>
+      </div>
+      <nav class="footer__nav" aria-label="Enlaces del pie">
+        <a href="#como-funciona" class="footer__link">Cómo funciona</a>
+        <a href="#contacto" class="footer__link">Contacto</a>
+      </nav>
+      <p class="footer__schedule">Lun - Vie: 9:00 AM - 6:00 PM</p>
+      <p class="footer__copy">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
