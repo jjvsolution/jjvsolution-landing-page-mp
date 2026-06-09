@@ -1,172 +1,519 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="light" lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="description" content="JJV SOLUTIONS - Soluciones tecnológicas: desarrollo web y mobile, soporte, proyectos completos, landing pages, ecommerce y aplicaciones SaaS.">
-  <title>JJV SOLUTIONS | Soluciones tecnológicas a tu medida</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>JJV SOLUTIONS - Soluciones Tecnológicas a Tu Medida</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#001f24",
+            "primary-container": "#18727d",
+            "on-secondary": "#ffffff",
+            "primary": "#005862",
+            "on-error-container": "#93000a",
+            "on-background": "#181c1d",
+            "on-tertiary-fixed-variant": "#6d390f",
+            "inverse-on-surface": "#eef1f2",
+            "on-tertiary-container": "#ffe1d0",
+            "surface-container-low": "#f1f4f4",
+            "surface": "#f7fafa",
+            "surface-bright": "#f7fafa",
+            "surface-container-high": "#e6e9e9",
+            "on-secondary-fixed": "#001b3f",
+            "teal-glow": "#24a1ae",
+            "primary-fixed": "#a1effb",
+            "tertiary-fixed": "#ffdcc6",
+            "error": "#ba1a1a",
+            "outline-variant": "#bec8ca",
+            "inverse-surface": "#2d3132",
+            "surface-tint": "#016873",
+            "slate-text": "#1a1a1a",
+            "surface-container": "#eceeef",
+            "error-container": "#ffdad6",
+            "surface-dim": "#d8dadb",
+            "surface-container-highest": "#e0e3e3",
+            "surface-soft": "#f8fafc",
+            "outline": "#6f797b",
+            "primary-fixed-dim": "#85d3df",
+            "surface-variant": "#e0e3e3",
+            "secondary-fixed-dim": "#abc7ff",
+            "tertiary-fixed-dim": "#ffb785",
+            "secondary-container": "#a6c4ff",
+            "slate-muted": "#475569",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#774217",
+            "on-surface-variant": "#3f484a",
+            "inverse-primary": "#85d3df",
+            "secondary-fixed": "#d7e2ff",
+            "secondary": "#405e93",
+            "on-primary-fixed-variant": "#004f57",
+            "on-primary-container": "#abf3ff",
+            "on-tertiary-fixed": "#301400",
+            "on-primary": "#ffffff",
+            "on-surface": "#181c1d",
+            "background": "#f7fafa",
+            "on-secondary-container": "#315084",
+            "on-secondary-fixed-variant": "#264679",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "tertiary-container": "#94592d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-gap-sm": "64px",
+            "stack-md": "16px",
+            "container-max": "1200px",
+            "section-gap-lg": "120px",
+            "gutter": "24px",
+            "stack-lg": "32px"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "display-hero": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+            "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.5);
+    }
+
+    .hero-gradient {
+      background: radial-gradient(circle at top right, rgba(24, 114, 125, 0.08), transparent),
+                  radial-gradient(circle at bottom left, rgba(0, 88, 98, 0.05), transparent);
+    }
+
+    .dot-pattern {
+      background-image: radial-gradient(rgba(0, 88, 98, 0.03) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 42, 92, 0.08);
+      border-color: #18727d;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #005862;
+      color: #ffffff;
+      border-radius: 0.5rem;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-scroll {
+      animation: scroll 40s linear infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
   <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
-  <header class="header" id="header">
-    <div class="header__container">
-      <a href="#inicio" class="header__logo" aria-label="JJV SOLUTIONS - Inicio">
-        <img src="assets/logo-2.png" alt="JJV SOLUTIONS - Logo" class="header__logo-img">
+
+  <header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm h-20" id="header">
+    <div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-full">
+      <a href="#inicio" class="flex items-center gap-2" aria-label="JJV SOLUTIONS - Inicio">
+        <img alt="JJV SOLUTIONS Logo" class="h-10 w-auto object-contain" src="assets/logo_jjvs.png">
       </a>
-      <button type="button" class="header__menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <span class="header__menu-icon"></span>
-      </button>
-      <nav class="header__nav" aria-label="Navegación principal">
-        <ul class="header__nav-list">
-          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
-          <li><a href="#servicios" class="header__nav-link">Servicios</a></li>
-          <li><a href="#saas" class="header__nav-link">SaaS</a></li>
-          <li><a href="#tecnologias" class="header__nav-link">Tecnologías</a></li>
-          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
-        </ul>
+      <nav class="hidden md:flex items-center gap-stack-lg" aria-label="Navegación principal">
+        <a class="text-primary font-bold border-b-2 border-primary font-body-md py-1 transition-colors" href="#inicio">Inicio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#servicios">Servicios</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#saas">SaaS</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#tecnologias">Tecnologías</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#contacto">Contacto</a>
       </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden sm:inline-flex bg-primary text-on-primary px-6 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-sm" href="#contacto">
+          Solicitar cotización
+        </a>
+        <button type="button" class="md:hidden text-primary" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+          <span class="material-symbols-outlined text-headline-md">menu</span>
+        </button>
+      </div>
     </div>
+    <nav class="md:hidden hidden bg-surface border-b border-outline-variant/30 shadow-lg" id="mobile-nav" aria-label="Navegación móvil">
+      <div class="max-w-container-max mx-auto px-gutter py-4 flex flex-col gap-4">
+        <a class="text-primary font-bold font-body-md py-1" href="#inicio">Inicio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#servicios">Servicios</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#saas">SaaS</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#tecnologias">Tecnologías</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#contacto">Contacto</a>
+        <a class="inline-flex bg-primary text-on-primary px-6 py-3 rounded-lg font-bold hover:bg-primary-container transition-all text-center" href="#contacto">
+          Solicitar cotización
+        </a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero__container">
-        <h1 class="hero__title">JJV SOLUTIONS</h1>
-        <p class="hero__tagline">Soluciones tecnológicas a tu medida</p>
-        <p class="hero__subtitle">Desarrollo web y móvil, soporte técnico y proyectos completos para impulsar tu negocio.</p>
-        <a href="#contacto" class="btn btn--primary hero__cta">Solicitar cotización</a>
-      </div>
-      <div class="hero__pattern" aria-hidden="true"></div>
-    </section>
-
-    <section class="section section--services" id="servicios">
-      <div class="container">
-        <h2 class="section__title">Nuestros servicios</h2>
-        <div class="services-grid">
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Soporte</h3>
-            <p class="card__text">Asistencia técnica continua para mantener tus sistemas operativos y resolver incidencias con rapidez.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Desarrollo web y mobile</h3>
-            <p class="card__text">Aplicaciones y sitios web modernos, responsive y escalables para escritorio y dispositivos móviles.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Proyectos completos</h3>
-            <p class="card__text">Desarrollo integral desde el análisis hasta el despliegue: arquitectura, desarrollo, pruebas y puesta en producción.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Landing page</h3>
-            <p class="card__text">Páginas de aterrizaje optimizadas para conversión y captación de leads para tu negocio.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Ecommerce</h3>
-            <p class="card__text">Tiendas online seguras y fáciles de gestionar, con pasarelas de pago y gestión de inventario.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--saas" id="saas">
-      <div class="container">
-        <h2 class="section__title">Soluciones SaaS</h2>
-        <div class="saas-grid">
-          <article class="card card--saas">
-            <h3 class="card__title">App de Cotizaciones</h3>
-            <p class="card__text">Genera y gestiona cotizaciones de forma profesional y ágil.</p>
-            <a href="cotizaciones.html" class="card__link">Conocer más</a>
-          </article>
-          <article class="card card--saas">
-            <h3 class="card__title">App de Encuestas</h3>
-            <p class="card__text">Recopila feedback y datos con encuestas personalizables.</p>
-            <a href="encuestas.html" class="card__link">Conocer más</a>
-          </article>
-          <article class="card card--saas">
-            <h3 class="card__title">App de reservas con n8n</h3>
-            <p class="card__text">Sistema de reservas automatizado e integrado con tus flujos de trabajo.</p>
-            <a href="reservas-n8n.html" class="card__link">Conocer más</a>
-          </article>
-          <article class="card card--saas">
-            <h3 class="card__title">API de centralización de autenticación</h3>
-            <p class="card__text">Un único punto de autenticación para todas tus aplicaciones.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tech" id="tecnologias">
-      <div class="container">
-        <h2 class="section__title">Trabajamos con</h2>
-        <div class="tech-list">
-          <span class="tech-badge">Koyep</span>
-          <span class="tech-badge">AWS</span>
-          <span class="tech-badge">Vercel</span>
-          <span class="tech-badge">n8n</span>
-          <span class="tech-badge">Servidores propios</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-block">
-            <span class="stat-block__number">10+</span>
-            <span class="stat-block__label">años de experiencia</span>
+    <section class="relative pt-32 pb-section-gap-lg overflow-hidden hero-gradient" id="inicio">
+      <div class="absolute inset-0 dot-pattern opacity-50 -z-10"></div>
+      <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+        <div class="space-y-stack-md text-center lg:text-left">
+          <span class="inline-block bg-primary-fixed text-on-primary-fixed px-4 py-1.5 rounded-full font-label-caps uppercase tracking-wider">
+            Innovación Digital
+          </span>
+          <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-primary max-w-2xl mx-auto lg:mx-0">
+            JJV SOLUTIONS - <span class="text-teal-glow">Soluciones tecnológicas</span> a tu medida
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto lg:mx-0">
+            Desarrollo web y móvil, soporte técnico y proyectos completos para impulsar tu negocio con infraestructura moderna y escalable.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+            <a class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-container transition-all shadow-lg active:scale-95 text-center" href="#contacto">
+              Solicitar cotización
+            </a>
+            <a class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary/5 transition-all text-center" href="#servicios">
+              Ver Servicios
+            </a>
           </div>
-          <div class="stat-block">
-            <span class="stat-block__number">30+</span>
-            <span class="stat-block__label">proyectos completados</span>
+          <div class="flex flex-wrap gap-stack-lg pt-12 justify-center lg:justify-start">
+            <div>
+              <p class="text-primary font-display-hero text-headline-lg font-extrabold">10+</p>
+              <p class="font-label-caps text-on-surface-variant">Años de experiencia</p>
+            </div>
+            <div class="w-px h-12 bg-outline-variant/50 hidden sm:block"></div>
+            <div>
+              <p class="text-primary font-display-hero text-headline-lg font-extrabold">30+</p>
+              <p class="font-label-caps text-on-surface-variant">Proyectos completados</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative mt-12 lg:mt-0">
+          <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
+            <img class="w-full h-full object-cover" alt="Oficina de desarrollo de software con monitores y ambiente profesional moderno" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-ipWycThxZM48vmDhlbic5ZCHwG7ybS8-Hal_1GGByZtZqsloIdXWT41l0eCuNlSxTdJeoACin2knIyBYMCrqhic28aaFXhQjehPFoEjkmeA0RHLc4ZX6vCSvkIXdEdl7u_g8DpkM1tvyf1ELZGDRAxi1xc-M8WRg59CdIZ41BM2das8TjOdDRaQyC2cF8X3VxvzrBWCQAKyC10Y7CHcEM0kJ56IqB4qAzbtyI9dVcHe2C-UebQYtNUDlHX7MwmeuezJZbabxryFi">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+          </div>
+          <div class="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 glass-card p-6 rounded-2xl shadow-xl max-w-xs border-l-4 border-primary">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-symbols-outlined text-primary fill-icon">verified</span>
+              <span class="font-bold text-primary">Arquitectura Escalable</span>
+            </div>
+            <p class="text-on-surface-variant text-sm">Construimos sobre cimientos sólidos diseñados para el crecimiento masivo de usuarios y datos.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--contact" id="contacto">
-      <div class="container">
-        <h2 class="section__title">Contacto</h2>
-        <div class="contact-content">
-          <p class="contact__intro">¿Tienes un proyecto en mente? Escríbenos o llámanos.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-list__label">Email</span>
-              <a href="mailto:info.jjvs@gmail.com" class="contact-list__link">info.jjvs@gmail.com</a>
-            </li>
-            <li>
-              <span class="contact-list__label">Teléfono</span>
-              <a href="tel:+56933481810" class="contact-list__link">+56 9 xxxxxxxx</a>
-            </li>
-            <li>
-              <span class="contact-list__label">Horario</span>
-              <span class="contact-list__value">Lun - Vie: 9:00 AM - 6:00 PM</span>
-            </li>
-          </ul>
-          <a href="mailto:info.jjvs@gmail.com?subject=Consulta%20desde%20landing" class="btn btn--primary contact__cta">Enviar mensaje</a>
+    <section class="py-section-gap-lg bg-surface-container-lowest relative" id="servicios">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center mb-section-gap-sm">
+          <h2 class="font-display-hero text-headline-lg text-primary mb-4">Servicios Especializados</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Cubrimos todo el ciclo de vida tecnológico de tu empresa con precisión técnica y enfoque comercial.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 hover-lift group">
+            <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span class="material-symbols-outlined text-headline-md">support_agent</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Soporte Técnico</h3>
+            <p class="text-on-surface-variant mb-6">Mantenimiento proactivo y resolución ágil de incidencias para asegurar la continuidad de tu operación.</p>
+            <ul class="space-y-2 text-sm text-on-surface-variant">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Monitoreo 24/7</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Gestión de IT</li>
+            </ul>
+          </div>
+          <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 hover-lift group">
+            <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span class="material-symbols-outlined text-headline-md">devices</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Desarrollo Web &amp; Mobile</h3>
+            <p class="text-on-surface-variant mb-6">Aplicaciones nativas e híbridas con interfaces intuitivas y un rendimiento excepcional en cualquier dispositivo.</p>
+            <ul class="space-y-2 text-sm text-on-surface-variant">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> iOS &amp; Android</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> React &amp; Vue</li>
+            </ul>
+          </div>
+          <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 hover-lift group">
+            <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span class="material-symbols-outlined text-headline-md">inventory_2</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Proyectos Completos</h3>
+            <p class="text-on-surface-variant mb-6">Desde el concepto inicial hasta el despliegue final, gestionamos cada fase del desarrollo integral.</p>
+            <ul class="space-y-2 text-sm text-on-surface-variant">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Arquitectura Cloud</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Gestión Agile</li>
+            </ul>
+          </div>
+          <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 hover-lift group">
+            <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span class="material-symbols-outlined text-headline-md">web</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Landing Pages</h3>
+            <p class="text-on-surface-variant mb-6">Diseños optimizados para la conversión que comunican tu propuesta de valor de manera impactante.</p>
+            <ul class="space-y-2 text-sm text-on-surface-variant">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> SEO Ready</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> High Conversion</li>
+            </ul>
+          </div>
+          <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 hover-lift group">
+            <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+              <span class="material-symbols-outlined text-headline-md">shopping_cart</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Ecommerce</h3>
+            <p class="text-on-surface-variant mb-6">Plataformas de venta online robustas con pasarelas de pago seguras y gestión de inventario eficiente.</p>
+            <ul class="space-y-2 text-sm text-on-surface-variant">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Pagos Seguros</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Automatización</li>
+            </ul>
+          </div>
+          <div class="bg-primary p-8 rounded-2xl border border-primary flex flex-col justify-center items-center text-center text-on-primary">
+            <h3 class="font-headline-md text-headline-md mb-4">¿Necesitas algo a medida?</h3>
+            <p class="mb-8 opacity-90">Conversamos sobre tu visión y la transformamos en realidad técnica.</p>
+            <a class="bg-on-primary text-primary px-8 py-3 rounded-lg font-bold hover:bg-primary-fixed transition-all" href="#contacto">Empezar ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-lg bg-surface relative overflow-hidden" id="saas">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col lg:flex-row items-center gap-stack-lg mb-16">
+          <div class="lg:w-1/2">
+            <h2 class="font-display-hero text-headline-lg text-primary mb-6">Soluciones SaaS Propias</h2>
+            <p class="font-body-lg text-on-surface-variant mb-8">
+              Herramientas pre-construidas y personalizables diseñadas para resolver desafíos empresariales comunes con una implementación ultra-rápida.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <a class="flex items-start gap-4 hover:bg-primary/5 p-3 rounded-xl transition-colors" href="cotizaciones.html">
+                <div class="text-primary mt-1"><span class="material-symbols-outlined fill-icon">request_quote</span></div>
+                <div>
+                  <h4 class="font-bold text-primary">App de Cotizaciones</h4>
+                  <p class="text-sm text-on-surface-variant">Automatiza presupuestos complejos en segundos.</p>
+                </div>
+              </a>
+              <a class="flex items-start gap-4 hover:bg-primary/5 p-3 rounded-xl transition-colors" href="encuestas.html">
+                <div class="text-primary mt-1"><span class="material-symbols-outlined fill-icon">poll</span></div>
+                <div>
+                  <h4 class="font-bold text-primary">App de Encuestas</h4>
+                  <p class="text-sm text-on-surface-variant">Recopila datos valiosos de tus clientes.</p>
+                </div>
+              </a>
+              <a class="flex items-start gap-4 hover:bg-primary/5 p-3 rounded-xl transition-colors" href="reservas-n8n.html">
+                <div class="text-primary mt-1"><span class="material-symbols-outlined fill-icon">calendar_month</span></div>
+                <div>
+                  <h4 class="font-bold text-primary">Reservas con n8n</h4>
+                  <p class="text-sm text-on-surface-variant">Automatización de flujos de agendamiento.</p>
+                </div>
+              </a>
+              <div class="flex items-start gap-4 p-3">
+                <div class="text-primary mt-1"><span class="material-symbols-outlined fill-icon">key</span></div>
+                <div>
+                  <h4 class="font-bold text-primary">API de Autenticación</h4>
+                  <p class="text-sm text-on-surface-variant">Seguridad centralizada para todos tus servicios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2 relative group">
+            <div class="grid grid-cols-6 grid-rows-6 gap-4 h-[500px] w-full">
+              <div class="col-span-4 row-span-4 bg-primary-container/10 rounded-2xl border border-primary/20 overflow-hidden relative">
+                <img class="w-full h-full object-cover" alt="Dashboard SaaS moderno con visualizaciones de datos en tonos teal y azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTfq6GOiKenK-DFoikjyPrkVr2ge3rDPh71yUp61mDDdWmn-HYExTnoU7g4Y1sybP0M9HLZAHQC51Ip_CjdyZyPU3sw9lgSMXgxolkZIYuiYN7aSOKpWPBYYSB9WcO1TA9VkRHYNv9B5KaIZJAsd5gJmgVvn4xa0pz-iphJfbrYg7cYcLVzD4xHKT1t5qyIjeAv6_Jqf5ftuX4Vs6GaU1u75vZdDLltNuZw1174baoUVEhiGkvIcNlx3vGLTCAqv3EFAo2moM1lIHb">
+              </div>
+              <div class="col-span-2 row-span-3 bg-teal-glow/5 rounded-2xl border border-primary/10 p-4 flex flex-col justify-center items-center text-center">
+                <span class="material-symbols-outlined text-primary text-headline-md mb-2">sync_alt</span>
+                <span class="text-xs font-bold text-primary uppercase">Integración API</span>
+              </div>
+              <div class="col-span-2 row-span-3 col-start-5 row-start-4 bg-primary/5 rounded-2xl border border-primary/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-headline-md">shield</span>
+              </div>
+              <div class="col-span-4 row-span-2 col-start-1 row-start-5 bg-surface-container-high rounded-2xl border border-outline-variant/30 p-6 flex items-center gap-6">
+                <div class="flex -space-x-3">
+                  <div class="w-10 h-10 rounded-full bg-primary-container border-2 border-surface"></div>
+                  <div class="w-10 h-10 rounded-full bg-teal-glow border-2 border-surface"></div>
+                  <div class="w-10 h-10 rounded-full bg-secondary-container border-2 border-surface"></div>
+                </div>
+                <div>
+                  <p class="font-bold text-primary">+1,200 Usuarios</p>
+                  <p class="text-xs text-on-surface-variant">Activos mensualmente</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-sm bg-surface-container-lowest overflow-hidden border-y border-outline-variant/20" id="tecnologias">
+      <div class="max-w-container-max mx-auto px-gutter text-center mb-8">
+        <p class="font-label-caps text-on-surface-variant tracking-widest uppercase">Tecnologías que dominamos</p>
+      </div>
+      <div class="flex overflow-hidden group">
+        <div class="flex animate-scroll whitespace-nowrap py-4 gap-20 items-center">
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">React.js</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Flutter</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Node.js</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">PostgreSQL</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">AWS</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Docker</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">n8n</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Python</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">React.js</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Flutter</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">Node.js</span>
+          <span class="text-headline-md font-bold text-outline opacity-40 hover:opacity-100 transition-opacity cursor-default">PostgreSQL</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-lg bg-surface relative" id="contacto">
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 p-10 md:p-16 bg-primary text-on-primary">
+            <h2 class="font-headline-lg text-headline-lg mb-6">Hablemos de tu proyecto</h2>
+            <p class="opacity-90 mb-12 max-w-md">Nuestro equipo de consultores está listo para ayudarte a diseñar la mejor estrategia tecnológica para tu organización.</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">mail</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">EMAIL</p>
+                  <a class="text-lg font-bold hover:underline" href="mailto:info.jjvs@gmail.com">info.jjvs@gmail.com</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">call</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">TELÉFONO</p>
+                  <a class="text-lg font-bold hover:underline" href="tel:+56988914025">+56 9 8891 4025</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">location_on</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">UBICACIÓN</p>
+                  <p class="text-lg font-bold">Santiago, Chile</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2 p-10 md:p-16">
+            <form class="space-y-6" action="mailto:info.jjvs@gmail.com" method="post" enctype="text/plain">
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="nombre">NOMBRE COMPLETO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:ring-2 focus:ring-primary transition-all outline-none" id="nombre" name="nombre" placeholder="Tu nombre..." type="text" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">CORREO ELECTRÓNICO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:ring-2 focus:ring-primary transition-all outline-none" id="email" name="email" placeholder="ejemplo@correo.com" type="email" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="mensaje">MENSAJE</label>
+                <textarea class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:ring-2 focus:ring-primary transition-all outline-none" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." rows="4" required></textarea>
+              </div>
+              <button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl shadow-lg hover:opacity-90 active:scale-95 transition-all" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__brand">
-        <span class="footer__logo-text">JJV SOLUTIONS</span>
+  <footer class="bg-inverse-surface py-section-gap-sm border-t border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg mb-16">
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center gap-2 mb-6">
+            <img alt="JJV SOLUTIONS Logo" class="h-8 brightness-0 invert" src="assets/logo_jjvs.png">
+          </div>
+          <p class="text-surface-variant/70 text-sm leading-relaxed">Transformando el futuro a través de código impecable y soluciones innovadoras.</p>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Producto</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#servicios">Servicios</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#saas">SaaS</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#tecnologias">Tecnologías</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Empresa</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#contacto">Contacto</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="cotizaciones.html">Cotizaciones</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="encuestas.html">Encuestas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Privacy Policy</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Terms of Service</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Cookies</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="footer__nav" aria-label="Enlaces del pie">
-        <a href="#servicios" class="footer__link">Servicios</a>
-        <a href="#contacto" class="footer__link">Contacto</a>
-      </nav>
-      <p class="footer__schedule">Lun - Vie: 9:00 AM - 6:00 PM</p>
-      <p class="footer__copy">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+      <div class="pt-8 border-t border-surface-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-surface-variant/50 text-sm">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="mailto:info.jjvs@gmail.com" aria-label="Email">
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="tel:+56988914025" aria-label="Teléfono">
+            <span class="material-symbols-outlined">call</span>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 

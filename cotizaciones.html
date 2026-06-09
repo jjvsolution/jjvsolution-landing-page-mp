@@ -1,180 +1,541 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="scroll-smooth" lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="description" content="App de Cotizaciones: gestiona clientes, productos, plantillas y emite cotizaciones profesionales. Todo en una sola plataforma. Solicita demo.">
-  <title>App de Cotizaciones - Clientes, productos y cotizaciones | JJV SOLUTIONS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>JJV SOLUTIONS | Sistema de Cotizaciones SaaS</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#85d3df",
+            "surface-container-low": "#f1f4f4",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eef1f2",
+            "on-secondary-fixed": "#001b3f",
+            "on-primary-container": "#abf3ff",
+            "outline": "#6f797b",
+            "primary-container": "#18727d",
+            "slate-muted": "#475569",
+            "background": "#f7fafa",
+            "on-surface": "#181c1d",
+            "secondary": "#405e93",
+            "on-tertiary-container": "#ffe1d0",
+            "tertiary-fixed": "#ffdcc6",
+            "outline-variant": "#bec8ca",
+            "error": "#ba1a1a",
+            "tertiary": "#774217",
+            "surface-tint": "#016873",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#264679",
+            "primary": "#005862",
+            "on-tertiary-fixed-variant": "#6d390f",
+            "surface-dim": "#d8dadb",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb785",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#315084",
+            "surface": "#f7fafa",
+            "inverse-surface": "#2d3132",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e6e9e9",
+            "tertiary-container": "#94592d",
+            "primary-fixed": "#a1effb",
+            "error-container": "#ffdad6",
+            "slate-text": "#1a1a1a",
+            "surface-variant": "#e0e3e3",
+            "surface-container": "#eceeef",
+            "primary-fixed-dim": "#85d3df",
+            "surface-container-highest": "#e0e3e3",
+            "on-surface-variant": "#3f484a",
+            "on-primary-fixed": "#001f24",
+            "surface-soft": "#f8fafc",
+            "secondary-fixed-dim": "#abc7ff",
+            "on-primary-fixed-variant": "#004f57",
+            "teal-glow": "#24a1ae",
+            "on-background": "#181c1d",
+            "secondary-container": "#a6c4ff",
+            "on-tertiary-fixed": "#301400",
+            "secondary-fixed": "#d7e2ff",
+            "surface-bright": "#f7fafa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-lg": "32px",
+            "gutter": "24px",
+            "stack-md": "16px",
+            "section-gap-lg": "120px",
+            "section-gap-sm": "64px",
+            "container-max": "1200px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-hero": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+            "display-hero-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7fafa;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at top right, rgba(0, 88, 98, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(36, 161, 174, 0.05) 0%, transparent 50%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .brand-button-gradient {
+      background: linear-gradient(135deg, #005862 0%, #016873 100%);
+    }
+    .dot-pattern {
+      background-image: radial-gradient(#005862 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+      opacity: 0.03;
+    }
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #005862;
+      color: #ffffff;
+      border-radius: 0.5rem;
+      font-weight: 700;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+  </style>
 </head>
-<body>
+<body class="text-on-surface overflow-x-hidden">
   <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
-  <header class="header" id="header">
-    <div class="header__container">
-      <a href="index.html" class="header__logo" aria-label="JJV SOLUTIONS - Inicio">
-        <img src="assets/logo-2.png" alt="JJV SOLUTIONS - Logo" class="header__logo-img">
+
+  <header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm h-20" id="header">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-full">
+      <a href="index.html" class="flex items-center gap-2" aria-label="JJV SOLUTIONS - Inicio">
+        <img alt="JJV SOLUTIONS Logo" class="h-10 w-auto object-contain" src="assets/logo_jjvs.png">
       </a>
-      <button type="button" class="header__menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <span class="header__menu-icon"></span>
-      </button>
-      <nav class="header__nav" aria-label="Navegación principal">
-        <ul class="header__nav-list">
-          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
-          <li><a href="#caracteristicas" class="header__nav-link">Características</a></li>
-          <li><a href="#planes" class="header__nav-link">Planes</a></li>
-          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
-          <li><a href="index.html#saas" class="header__nav-link">Soluciones JJV</a></li>
-        </ul>
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+        <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary py-1" href="#inicio">Inicio</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#caracteristicas">Características</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#planes">Planes</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#contacto">Contacto</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html#saas">Soluciones JJV</a>
       </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden md:inline-flex brand-button-gradient text-white px-6 py-2.5 rounded-lg font-bold text-body-md transition-all hover:opacity-90 active:scale-95 shadow-lg shadow-primary/20" href="#contacto">
+          Solicitar demo
+        </a>
+        <button type="button" class="md:hidden text-primary" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+          <span class="material-symbols-outlined text-headline-md">menu</span>
+        </button>
+      </div>
     </div>
+    <nav class="md:hidden hidden bg-surface border-b border-outline-variant/30 shadow-lg" id="mobile-nav" aria-label="Navegación móvil">
+      <div class="max-w-container-max mx-auto px-gutter py-4 flex flex-col gap-4">
+        <a class="text-primary font-bold font-body-md py-1" href="#inicio">Inicio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#caracteristicas">Características</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#planes">Planes</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#contacto">Contacto</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="index.html#saas">Soluciones JJV</a>
+        <a class="inline-flex brand-button-gradient text-white px-6 py-3 rounded-lg font-bold text-center" href="#contacto">Solicitar demo</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero__container">
-        <h1 class="hero__title">Cotizaciones profesionales en un solo lugar</h1>
-        <p class="hero__tagline">Gestiona clientes, productos y cotizaciones sin complicarte</p>
-        <p class="hero__subtitle">Todo en una plataforma: mantenedor de clientes, catálogo de productos o servicios, datos de tu empresa, plantillas reutilizables y cotizaciones listas para enviar.</p>
-        <div class="hero__actions">
-          <a href="#contacto" class="btn btn--primary hero__cta">Solicitar demo</a>
-          <a href="#caracteristicas" class="btn btn--secondary hero__cta-secondary">Ver características</a>
-        </div>
-      </div>
-      <div class="hero__pattern" aria-hidden="true"></div>
-    </section>
-
-    <section class="section section--services" id="caracteristicas">
-      <div class="container">
-        <h2 class="section__title">Todo lo que necesitas para cotizar</h2>
-        <p class="section__subtitle">Mantenedores integrados para que armes y envíes cotizaciones de forma ágil y profesional.</p>
-        <div class="services-grid">
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Clientes</h3>
-            <p class="card__text">Mantenedor de clientes para tener tu cartera organizada y usarla en cada cotización sin repetir datos.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Productos y servicios</h3>
-            <p class="card__text">Catálogo de productos o servicios con precios, descripciones y unidades para armar tus cotizaciones al instante.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Datos de empresa</h3>
-            <p class="card__text">Configura razón social, contacto y logo para que todas las cotizaciones salgan con la identidad de tu empresa.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◇</div>
-            <h3 class="card__title">Plantillas</h3>
-            <p class="card__text">Plantillas reutilizables para dar formato y estructura a tus cotizaciones según el tipo de trabajo o cliente.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◇</div>
-            <h3 class="card__title">Cotizaciones</h3>
-            <p class="card__text">Crea y gestiona las cotizaciones uniendo clientes, ítems del catálogo y plantillas en un solo flujo.</p>
-          </article>
+    <section class="relative pt-40 pb-section-gap-lg overflow-hidden hero-gradient" id="inicio">
+      <div class="absolute inset-0 dot-pattern"></div>
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+          <div class="space-y-stack-md">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary mb-4">
+              <span class="font-label-caps text-label-caps">NUEVA VERSIÓN 2.0</span>
+            </div>
+            <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-primary leading-tight">
+              Cotizaciones profesionales <br><span class="text-teal-glow">en un solo lugar</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+              Gestiona clientes, productos y cotizaciones sin complicarte. Todo en una plataforma: mantenedor de clientes, catálogo de productos o servicios, datos de tu empresa, plantillas reutilizables y cotizaciones listas para enviar.
+            </p>
+            <div class="pt-6 flex flex-wrap gap-4">
+              <a class="brand-button-gradient text-white px-8 py-4 rounded-xl font-bold text-body-md shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform" href="#contacto">
+                Solicitar demo
+              </a>
+              <a class="bg-white border border-primary/20 text-primary px-8 py-4 rounded-xl font-bold text-body-md hover:bg-primary/5 transition-colors" href="#planes">
+                Ver planes
+              </a>
+            </div>
+            <div class="pt-8 flex items-center gap-6">
+              <div class="flex -space-x-3">
+                <img alt="Usuario" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzhlcnAOqdyNC6j2HyvyOM8ZmB-F2OQ_kfPl9m8AzTs8AunVJjQHI3GfjAPp5G5UPhHjjBDRfbRcX1_9qdUhjZOND7SmKBewz6itdo3QSe0sIacQH-y6Vi3_RJqYjLIM5KpgikkEeC94ph4Fr3ndICuPlDm_8BN49RUnBgrbZpyhzZUuwXsDpXc461ZsOe_fbnpaa90Q2E6RqHgaEVTHYfYK5Hab99WZm1Mvdj_4_q014HdxzICIJzruallapAp0wqf-Lgeo6JRVgN">
+                <img alt="Usuario" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfjo3-co44-hyp7_id4S2nHY_NzIuqeIN8iQdi2aiylcgBYWmYYSlQtOzf7bhCxuWeAGk3W_pLfc_17hq3mU5RXqkEaWkKjxVWdiAyEff_CjXD_zmJyDxcPUtQo1CvWATrlwM9G0HN70vbTX9Fsj-W6W4rlwI6CLzmRisQlykVFfT7KlQcPmi2eMAxShSx6_jwwU0xGlRmMeBvPApd03zjgmptCTZOatqJd45XawFICH4ya4JlpyjSj7tzP9aBW0sNcETJPnTjsSTC">
+                <img alt="Usuario" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtpBNEA5rD-zkUPtfccBKnJ6osHDx1EAteJnFsda4QXa3s2hmRJ_6uGgdBhAy1_DPKrWyPetqI_BaN-6_-5YnjJNyy3Jeuhrjw79erk8AWXn7sZxqhnuybx3WRpNFQ3vAaWa6zC35jGKY0IJdl9Ys05icJWrUHmmV_2Rr38_8fCOsj0MeICdQIwMcKxm1_3qK_EEZk1qrLHqupZgZ9_WzJ0ItElKnBmHWlag90iqzyucbjoO68vqfJEdMSZJC-46pkEIItV7R4guh8">
+              </div>
+              <p class="text-on-surface-variant font-body-md">
+                <span class="font-bold text-primary">+500 empresas</span> ya confían en nosotros
+              </p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="relative z-20 rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/20 transform lg:rotate-2 lg:hover:rotate-0 transition-transform duration-500">
+              <img alt="Vista previa del dashboard de cotizaciones" class="w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqnsta1BYaNOtmQXwO0DGfUbV12IwoW1uDXkjljq-tGf7Sg-L6i9zL627QfeXWv8EYwJ2GvGlY7j90z-z5P1VILboCpkgUbP-Fq78ag1tVPXptyvkMA6x6h3QGzB83libLS-r6d4cXo8DO7yiz88mvyNGo8npcVDNDm64SGQTyhhbzTrn2aNZP_WVSCvCEGJ8pWw9fWBmPd6Q2QtbfG8jcvljFov_-HCOv-8or2iijgWSHhuSzjNVGC3Eyt9eg6uLaitGqpOY9nVm9">
+            </div>
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-teal-glow/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-60 h-60 bg-primary/10 rounded-full blur-3xl"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--saas" id="planes">
-      <div class="container">
-        <h2 class="section__title">Planes para cada necesidad</h2>
-        <p class="section__subtitle">Elige el plan que mejor se adapte a tu volumen de cotizaciones.</p>
-        <div class="plans-grid">
-          <article class="plan-card">
-            <h3 class="plan-card__name">Starter</h3>
-            <p class="plan-card__desc">Para probar o equipos que cotizan poco.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Gratis</span>
+    <section class="py-section-gap-lg bg-white relative" id="caracteristicas">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Todo lo que tu empresa necesita</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">Mantenedores integrados para que armes y envíes cotizaciones de forma ágil y profesional.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl">groups</span>
             </div>
-            <ul class="plan-card__features">
-              <li>Hasta 20 clientes</li>
-              <li>Hasta 30 productos/servicios</li>
-              <li>1 empresa y 1 plantilla</li>
-              <li>Hasta 10 cotizaciones/mes</li>
-            </ul>
-            <a href="#contacto" class="btn btn--secondary">Comenzar gratis</a>
-          </article>
-          <article class="plan-card plan-card--featured">
-            <span class="plan-card__badge">Recomendado</span>
-            <h3 class="plan-card__name">Profesional</h3>
-            <p class="plan-card__desc">Para equipos que cotizan a diario.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Consultar</span>
-              <span class="plan-card__period">/mes</span>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Clientes</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Mantenedor de clientes para tener tu cartera organizada y usarla en cada cotización sin repetir datos.</p>
+          </div>
+          <div class="md:col-span-8 glass-card p-8 rounded-2xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 group flex flex-col md:flex-row gap-8 items-center overflow-hidden">
+            <div class="flex-1">
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-3xl">inventory_2</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-primary mb-2">Productos y servicios</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">Catálogo de productos o servicios con precios, descripciones y unidades para armar tus cotizaciones al instante.</p>
             </div>
-            <ul class="plan-card__features">
-              <li>Clientes y productos ilimitados</li>
-              <li>Varias plantillas</li>
-              <li>Cotizaciones ilimitadas</li>
-              <li>Exportar a PDF</li>
-              <li>Historial y búsqueda</li>
-            </ul>
-            <a href="#contacto" class="btn btn--primary">Elegir plan</a>
-          </article>
-          <article class="plan-card">
-            <h3 class="plan-card__name">Empresa</h3>
-            <p class="plan-card__desc">Soluciones a medida para organizaciones.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Contactar</span>
+            <div class="flex-1 translate-y-8 group-hover:translate-y-4 transition-transform duration-500">
+              <img alt="Catálogo de productos" class="rounded-xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4prwxsnB1-FzJcGTW7Dd_Jfj_51-BAMABdZQF13MW8UxxO-a7_ZCSovBCGoPHmwlxekA1yUyDLYD9LB6t1-9iW48TYg14uXGNShMRMFiA-N_NJ-1jfBk4M1OZYhG60gB5ZUgd-JS1cFMyDvr0JYraxAeGsCYZA2CQmAz6vzkdzyDqsk9s9d6HeR28EiOVYGaWcPRvBUB6-5VUW0qJKeQQMp2LWM2QoL_b5CsIRT1lac7KJnE1Ti9GdxzJYfgPRTpiPM8YSZm_72Fu">
             </div>
-            <ul class="plan-card__features">
-              <li>Todo lo de Profesional</li>
-              <li>Multiempresa (varias razones sociales)</li>
-              <li>Marca blanca</li>
-              <li>Soporte prioritario</li>
-              <li>Integraciones a medida</li>
-            </ul>
-            <a href="#contacto" class="btn btn--secondary">Solicitar información</a>
-          </article>
+          </div>
+          <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl">business</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Datos de empresa</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Configura razón social, contacto y logo para que todas las cotizaciones salgan con la identidad de tu empresa.</p>
+          </div>
+          <div class="md:col-span-4 glass-card p-8 rounded-2xl hover:shadow-2xl hover:border-primary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl">description</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Plantillas</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Plantillas reutilizables para dar formato y estructura a tus cotizaciones según el tipo de trabajo o cliente.</p>
+          </div>
+          <div class="md:col-span-4 glass-card p-8 rounded-2xl bg-primary text-white hover:shadow-2xl transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl fill-icon">request_quote</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-white mb-2">Cotizaciones</h3>
+            <p class="font-body-md text-body-md text-primary-fixed">Crea y gestiona las cotizaciones uniendo clientes, ítems del catálogo y plantillas en un solo flujo.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--contact" id="contacto">
-      <div class="container">
-        <h2 class="section__title">Contacto</h2>
-        <div class="contact-content">
-          <p class="contact__intro">¿Quieres probar la App de Cotizaciones? Escríbenos o llámanos y te mostramos una demo.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-list__label">Email</span>
-              <a href="mailto:info.jjvs@gmail.com" class="contact-list__link">info.jjvs@gmail.com</a>
-            </li>
-            <li>
-              <span class="contact-list__label">Teléfono</span>
-              <a href="tel:+56933481810" class="contact-list__link">+56 9 xxxxxxxx</a>
-            </li>
-            <li>
-              <span class="contact-list__label">Horario</span>
-              <span class="contact-list__value">Lun - Vie: 9:00 AM - 6:00 PM</span>
-            </li>
-          </ul>
-          <a href="mailto:info.jjvs@gmail.com?subject=App%20Cotizaciones" class="btn btn--primary contact__cta">Solicitar demo</a>
+    <section class="py-section-gap-lg bg-surface-container-low relative" id="planes">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Planes diseñados para tu crecimiento</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">Elige el plan que mejor se adapte a tu volumen de cotizaciones.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-10 rounded-2xl border border-outline-variant/30 flex flex-col items-start transition-transform hover:-translate-y-2">
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase">Para empezar</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Starter</h3>
+            <p class="text-on-surface-variant text-sm mb-4">Para probar o equipos que cotizan poco.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary">Gratis</span>
+            </div>
+            <ul class="space-y-4 mb-10 w-full">
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Hasta 20 clientes
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Hasta 30 productos/servicios
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                1 empresa y 1 plantilla
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Hasta 10 cotizaciones/mes
+              </li>
+            </ul>
+            <a class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors mt-auto text-center" href="#contacto">Comenzar gratis</a>
+          </div>
+          <div class="bg-white p-10 rounded-2xl border-2 border-teal-glow shadow-2xl shadow-teal-glow/10 flex flex-col items-start relative overflow-hidden transform md:scale-105 z-10">
+            <div class="absolute top-0 right-0 bg-teal-glow text-white px-6 py-2 rounded-bl-xl font-bold text-xs uppercase tracking-widest">Recomendado</div>
+            <p class="font-label-caps text-label-caps text-teal-glow mb-4 uppercase">Más popular</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Profesional</h3>
+            <p class="text-on-surface-variant text-sm mb-4">Para equipos que cotizan a diario.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary">Consultar</span>
+              <span class="text-on-surface-variant">/mes</span>
+            </div>
+            <ul class="space-y-4 mb-10 w-full">
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Clientes y productos ilimitados
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Varias plantillas
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Cotizaciones ilimitadas
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Exportar a PDF
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Historial y búsqueda
+              </li>
+            </ul>
+            <a class="w-full py-4 rounded-xl brand-button-gradient text-white font-bold shadow-lg shadow-primary/30 hover:opacity-90 transition-opacity mt-auto text-center" href="#contacto">Elegir plan</a>
+          </div>
+          <div class="bg-white p-10 rounded-2xl border border-outline-variant/30 flex flex-col items-start transition-transform hover:-translate-y-2">
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase">Alta escala</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Empresa</h3>
+            <p class="text-on-surface-variant text-sm mb-4">Soluciones a medida para organizaciones.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary">Contactar</span>
+            </div>
+            <ul class="space-y-4 mb-10 w-full">
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Todo lo de Profesional
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Multiempresa (varias razones sociales)
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Marca blanca
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Soporte prioritario
+              </li>
+              <li class="flex items-center gap-3 text-body-md">
+                <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+                Integraciones a medida
+              </li>
+            </ul>
+            <a class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors mt-auto text-center" href="#contacto">Solicitar información</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-sm bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div class="text-white font-display-hero text-4xl mb-2">99.9%</div>
+            <div class="font-label-caps text-primary-fixed uppercase">Uptime Garantizado</div>
+          </div>
+          <div>
+            <div class="text-white font-display-hero text-4xl mb-2">15k+</div>
+            <div class="font-label-caps text-primary-fixed uppercase">Cotizaciones/Día</div>
+          </div>
+          <div>
+            <div class="text-white font-display-hero text-4xl mb-2">24/7</div>
+            <div class="font-label-caps text-primary-fixed uppercase">Soporte Técnico</div>
+          </div>
+          <div>
+            <div class="text-white font-display-hero text-4xl mb-2">50+</div>
+            <div class="font-label-caps text-primary-fixed uppercase">Países activos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-lg bg-white overflow-hidden" id="contacto">
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 p-10 md:p-16 bg-primary text-white">
+            <h2 class="font-headline-lg text-headline-lg mb-6">Hablemos de tu próximo proyecto</h2>
+            <p class="opacity-90 mb-12 max-w-md">¿Quieres probar la App de Cotizaciones? Escríbenos o llámanos y te mostramos una demo personalizada.</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">mail</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">EMAIL</p>
+                  <a class="text-lg font-bold hover:underline" href="mailto:info.jjvs@gmail.com">info.jjvs@gmail.com</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">call</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">TELÉFONO</p>
+                  <a class="text-lg font-bold hover:underline" href="tel:+56988914025">+56 9 8891 4025</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">schedule</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">HORARIO</p>
+                  <p class="text-lg font-bold">Lun - Vie: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2 p-10 md:p-16">
+            <form class="space-y-6" id="contact-form">
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="nombre">NOMBRE COMPLETO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="nombre" name="nombre" placeholder="Juan Pérez" type="text" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">CORREO CORPORATIVO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="email" name="email" placeholder="juan@empresa.com" type="email" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="mensaje">MENSAJE</label>
+                <textarea class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tus necesidades..." rows="4" required></textarea>
+              </div>
+              <button class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-90 active:scale-95 transition-all" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__brand">
-        <a href="index.html" class="footer__logo-text">JJV SOLUTIONS</a>
+  <footer class="bg-inverse-surface py-section-gap-sm border-t border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg mb-16">
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center gap-2 mb-6">
+            <a href="index.html" aria-label="JJV SOLUTIONS - Inicio">
+              <img alt="JJV SOLUTIONS Logo" class="h-8 brightness-0 invert" src="assets/logo_jjvs.png">
+            </a>
+          </div>
+          <p class="text-surface-variant/70 text-sm leading-relaxed">Simplifica tu proceso de cotización con herramientas profesionales integradas.</p>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Producto</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#caracteristicas">Características</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#planes">Planes</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Empresa</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="index.html">Inicio</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="index.html#saas">Soluciones SaaS</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="encuestas.html">Encuestas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Privacy Policy</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Terms of Service</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Cookies</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="footer__nav" aria-label="Enlaces del pie">
-        <a href="#caracteristicas" class="footer__link">Características</a>
-        <a href="#planes" class="footer__link">Planes</a>
-        <a href="#contacto" class="footer__link">Contacto</a>
-      </nav>
-      <p class="footer__schedule">Lun - Vie: 9:00 AM - 6:00 PM</p>
-      <p class="footer__copy">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+      <div class="pt-8 border-t border-surface-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-surface-variant/50 text-sm">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="mailto:info.jjvs@gmail.com" aria-label="Email">
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="tel:+56988914025" aria-label="Teléfono">
+            <span class="material-symbols-outlined">call</span>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    window.addEventListener('scroll', function () {
+      var header = document.getElementById('header');
+      if (!header) return;
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-md');
+        header.classList.remove('bg-surface/80');
+        header.classList.add('bg-surface/95');
+      } else {
+        header.classList.remove('shadow-md');
+        header.classList.remove('bg-surface/95');
+        header.classList.add('bg-surface/80');
+      }
+    });
+
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+        var mensaje = document.getElementById('mensaje').value;
+        var subject = encodeURIComponent('App Cotizaciones - Consulta de ' + nombre);
+        var body = encodeURIComponent('Nombre: ' + nombre + '\nEmail: ' + email + '\n\n' + mensaje);
+        window.location.href = 'mailto:info.jjvs@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    }
+  </script>
 </body>
 </html>

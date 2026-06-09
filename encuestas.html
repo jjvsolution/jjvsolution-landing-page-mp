@@ -1,175 +1,540 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="scroll-smooth" lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="description" content="Plataforma de evaluaciones 360°, 180°, clima laboral y encuestas personalizables. Reportes por tipo de proceso. Para RRHH y líderes. Prueba gratis.">
-  <title>App de Encuestas - Evaluaciones 360° y clima laboral | JJV SOLUTIONS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>JJV SOLUTIONS | App de Encuestas Modernas</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#85d3df",
+            "surface-container-low": "#f1f4f4",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eef1f2",
+            "on-secondary-fixed": "#001b3f",
+            "on-primary-container": "#abf3ff",
+            "outline": "#6f797b",
+            "primary-container": "#18727d",
+            "slate-muted": "#475569",
+            "background": "#f7fafa",
+            "on-surface": "#181c1d",
+            "secondary": "#405e93",
+            "on-tertiary-container": "#ffe1d0",
+            "tertiary-fixed": "#ffdcc6",
+            "outline-variant": "#bec8ca",
+            "error": "#ba1a1a",
+            "tertiary": "#774217",
+            "surface-tint": "#016873",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#264679",
+            "primary": "#005862",
+            "on-tertiary-fixed-variant": "#6d390f",
+            "surface-dim": "#d8dadb",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb785",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#315084",
+            "surface": "#f7fafa",
+            "inverse-surface": "#2d3132",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e6e9e9",
+            "tertiary-container": "#94592d",
+            "primary-fixed": "#a1effb",
+            "error-container": "#ffdad6",
+            "slate-text": "#1a1a1a",
+            "surface-variant": "#e0e3e3",
+            "surface-container": "#eceeef",
+            "primary-fixed-dim": "#85d3df",
+            "surface-container-highest": "#e0e3e3",
+            "on-surface-variant": "#3f484a",
+            "on-primary-fixed": "#001f24",
+            "surface-soft": "#f8fafc",
+            "secondary-fixed-dim": "#abc7ff",
+            "on-primary-fixed-variant": "#004f57",
+            "teal-glow": "#24a1ae",
+            "on-background": "#181c1d",
+            "secondary-container": "#a6c4ff",
+            "on-tertiary-fixed": "#301400",
+            "secondary-fixed": "#d7e2ff",
+            "surface-bright": "#f7fafa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-lg": "32px",
+            "gutter": "24px",
+            "stack-md": "16px",
+            "section-gap-lg": "120px",
+            "section-gap-sm": "64px",
+            "container-max": "1200px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-hero": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+            "display-hero-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.5);
+    }
+    .hero-pattern {
+      background-image: radial-gradient(circle at 2px 2px, rgba(0, 88, 98, 0.03) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .brand-gradient {
+      background: linear-gradient(135deg, #005862 0%, #24a1ae 100%);
+    }
+    .brand-gradient-text {
+      background: linear-gradient(135deg, #005862 0%, #24a1ae 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #005862;
+      color: #ffffff;
+      border-radius: 0.5rem;
+      font-weight: 700;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-surface font-body-md text-on-surface">
   <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
-  <header class="header" id="header">
-    <div class="header__container">
-      <a href="index.html" class="header__logo" aria-label="JJV SOLUTIONS - Inicio">
-        <img src="assets/logo-2.png" alt="JJV SOLUTIONS - Logo" class="header__logo-img">
+
+  <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 h-20" id="header">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-full">
+      <a href="index.html" class="flex items-center gap-4" aria-label="JJV SOLUTIONS - Inicio">
+        <img alt="JJV SOLUTIONS Logo" class="h-10 w-auto object-contain" src="assets/logo_jjvs.png">
       </a>
-      <button type="button" class="header__menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <span class="header__menu-icon"></span>
-      </button>
-      <nav class="header__nav" aria-label="Navegación principal">
-        <ul class="header__nav-list">
-          <li><a href="#inicio" class="header__nav-link">Inicio</a></li>
-          <li><a href="#caracteristicas" class="header__nav-link">Características</a></li>
-          <li><a href="#planes" class="header__nav-link">Planes</a></li>
-          <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
-          <li><a href="index.html#saas" class="header__nav-link">Soluciones JJV</a></li>
-        </ul>
+      <nav class="hidden md:flex items-center gap-stack-lg" aria-label="Navegación principal">
+        <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary py-1" href="#inicio">Inicio</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#caracteristicas">Características</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#planes">Planes</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#contacto">Contacto</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html#saas">Soluciones JJV</a>
       </nav>
+      <div class="flex items-center gap-4">
+        <a class="hidden sm:block text-primary font-bold px-6 py-2 hover:bg-primary-container/10 rounded-lg transition-all duration-200" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Iniciar sesión</a>
+        <a class="brand-gradient text-on-primary font-bold px-6 py-2.5 rounded-lg shadow-md hover:opacity-90 active:scale-95 transition-all" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Prueba gratis</a>
+        <button type="button" class="md:hidden text-primary" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+          <span class="material-symbols-outlined text-headline-md">menu</span>
+        </button>
+      </div>
     </div>
+    <nav class="md:hidden hidden bg-surface border-b border-outline-variant/30 shadow-lg" id="mobile-nav" aria-label="Navegación móvil">
+      <div class="max-w-container-max mx-auto px-gutter py-4 flex flex-col gap-4">
+        <a class="text-primary font-bold font-body-md py-1" href="#inicio">Inicio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#caracteristicas">Características</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#planes">Planes</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#contacto">Contacto</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="index.html#saas">Soluciones JJV</a>
+        <a class="inline-flex brand-gradient text-on-primary font-bold px-6 py-3 rounded-lg text-center" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Prueba gratis</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero__container">
-        <h1 class="hero__title">Evaluaciones y encuestas que impulsan a tu equipo</h1>
-        <p class="hero__tagline">Evaluaciones 360°, 180° y clima laboral en una sola plataforma</p>
-        <p class="hero__subtitle">Procesos listos para 360°, 180°, clima laboral y encuestas a medida. Reportes por tipo de proceso. Pensado para equipos de RRHH y líderes que quieren tomar decisiones basadas en datos.</p>
-        <div class="hero__actions">
-          <a href="https://app.surviedo.com" class="btn btn--primary hero__cta" target="_blank" rel="noopener noreferrer">Prueba gratis</a>
-          <a href="#caracteristicas" class="btn btn--secondary hero__cta-secondary">Ver características</a>
+    <section class="relative pt-32 pb-20 overflow-hidden hero-pattern" id="inicio">
+      <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="z-10">
+          <span class="inline-block px-4 py-1.5 mb-6 bg-primary-container/10 text-primary font-label-caps text-label-caps rounded-full uppercase tracking-widest">Plataforma SaaS v2.0</span>
+          <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface mb-6">
+            Evaluaciones y encuestas que <span class="brand-gradient-text">impulsan a tu equipo</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+            Procesos listos para 360°, 180°, clima laboral y encuestas a medida. Reportes por tipo de proceso. Pensado para equipos de RRHH y líderes que quieren tomar decisiones basadas en datos.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a class="brand-gradient text-on-primary font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-primary-container/20 transition-all flex items-center justify-center gap-2" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">
+              Prueba gratis
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a class="border-2 border-primary text-primary font-bold px-8 py-4 rounded-xl hover:bg-primary/5 transition-all text-center" href="#caracteristicas">Ver características</a>
+          </div>
+          <div class="mt-12 flex items-center gap-6">
+            <div class="flex -space-x-3">
+              <div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Ejecutivo de negocios" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD27mF4TH8rMDjd5bS-EzqiJTE5NDyO08WDLk-bD6zwp5oBcEKCZqioHIYDAn-aZtQZGnhdBhssLlQevWJUAnm03AIY5Uyod0BdgIe2h-OSOBWBXkPwyyi7EvzVMdTD4Mz9BqquNZ5DSBtdr4QOHhg6uxe3IHL30JdlEyJs_nupchxc5Dkb47G5ma8SJBxwidnodgJFg8IfDoP_oMn35FRs5g9Lan6YhbE_NSYXeLemJ_OduyhSoL5OzTtuJYMPAn153rHXbRHjGW90">
+              </div>
+              <div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Profesional creativa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf4xpWvDMUDxHk08qZ3eN24sB0twxyMCZ0aUcfHulw3VmKq41bGT36NjcutxCw9t5kANzmPzabfr2yyn4U572ECMppsEAYsKWxMWWM4X7xa3T9hgBlaKc-Hq8y9ryeh-2jT85sOgTOoC5aDQfY4FBUCln5xh1AQoF-4BnzqHIlkMPQXd0iZfC70zqP7YoIw0YIF4UtO47JBinL2LRpBW9tHFyRpT__cZiDQguGUXaff25ovybyOJuybUao_x9YGByzQmF4ZYKZ0dRY">
+              </div>
+              <div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Tomador de decisiones técnico" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG3lVsdTVA7sDsNhfkzY-k2kfg2GA7Y1AKYkOj6_qsSz5Y6FoEuuf7Cm7BLDfM3xHSFnZNDRZcd12YQeldeuO6_Wd17nJCFMti5f31KSW5X2fPAxr-wr1Pb_T4OzD1Szj8XOcvOZxuEoEr2szg0j1N0rLycrsL13HeYz0X4KY3J39NxMycGZUHqxt-_ic7rYuRmM6wND0mN4HAPCz0JdzGI0Gbcs2QVy7dboxRdCLgQbgNxykj5CHH67IM-OYIcixozEGImE16gwIv">
+              </div>
+            </div>
+            <p class="text-on-surface-variant font-label-caps text-label-caps">+500 Empresas confían en nosotros</p>
+          </div>
         </div>
-      </div>
-      <div class="hero__pattern" aria-hidden="true"></div>
-    </section>
-
-    <section class="section section--services" id="caracteristicas">
-      <div class="container">
-        <h2 class="section__title">Todo lo que necesitas para evaluar y mejorar</h2>
-        <p class="section__subtitle">Pensado para equipos de RRHH y líderes que quieren tomar decisiones basadas en datos.</p>
-        <div class="services-grid">
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">360°</div>
-            <h3 class="card__title">Evaluación 360°</h3>
-            <p class="card__text">Feedback completo: jefatura, pares, subordinados y autoevaluación. Asignaciones y reportes por rol y por evaluado.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">180°</div>
-            <h3 class="card__title">Evaluación 180°</h3>
-            <p class="card__text">Jefatura, pares y autoevaluación. Ideal para equipos que no requieren feedback de subordinados.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◆</div>
-            <h3 class="card__title">Clima laboral</h3>
-            <p class="card__text">Encuestas por participante, sin matriz evaluador-evaluado. Resultados agregados por dimensión.</p>
-          </article>
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">◇</div>
-            <h3 class="card__title">Plantillas y reportes</h3>
-            <p class="card__text">Plantillas con páginas y secciones. Reportes por tipo de proceso: resumen, por evaluado y por rol.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--saas" id="planes">
-      <div class="container">
-        <h2 class="section__title">Planes para cada necesidad</h2>
-        <p class="section__subtitle">Elige la opción que mejor se adapte a tu equipo.</p>
-        <div class="plans-grid">
-          <article class="plan-card">
-            <h3 class="plan-card__name">Básico</h3>
-            <p class="plan-card__desc">Ideal para empezar o equipos pequeños.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Gratis</span>
-            </div>
-            <ul class="plan-card__features">
-              <li>1 proceso activo</li>
-              <li>Hasta 20 participantes</li>
-              <li>Evaluación 360° y 180°</li>
-              <li>Reportes básicos</li>
-            </ul>
-            <a href="https://app.surviedo.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Comenzar</a>
-          </article>
-          <article class="plan-card plan-card--featured">
-            <span class="plan-card__badge">Recomendado</span>
-            <h3 class="plan-card__name">Profesional</h3>
-            <p class="plan-card__desc">Para equipos de RRHH y múltiples procesos.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Consultar</span>
-              <span class="plan-card__period">/mes</span>
-            </div>
-            <ul class="plan-card__features">
-              <li>Procesos ilimitados</li>
-              <li>Participantes ilimitados</li>
-              <li>360°, 180°, clima y personalizado</li>
-              <li>Reportes por tipo de proceso</li>
-              <li>Carga masiva por Excel</li>
-            </ul>
-            <a href="https://app.surviedo.com" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Elegir plan</a>
-          </article>
-          <article class="plan-card">
-            <h3 class="plan-card__name">Empresa</h3>
-            <p class="plan-card__desc">Soluciones a medida para organizaciones.</p>
-            <div class="plan-card__price">
-              <span class="plan-card__amount">Contactar</span>
-            </div>
-            <ul class="plan-card__features">
-              <li>Todo lo de Profesional</li>
-              <li>Soporte prioritario</li>
-              <li>Integraciones a medida</li>
-              <li>Capacitación incluida</li>
-            </ul>
-            <a href="#contacto" class="btn btn--secondary">Solicitar información</a>
-          </article>
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-teal-glow/10 rounded-3xl blur-2xl group-hover:bg-teal-glow/20 transition-all duration-500"></div>
+          <div class="relative glass-card p-6 rounded-3xl shadow-2xl border border-white/40 overflow-hidden">
+            <img class="rounded-xl w-full h-auto shadow-inner" alt="Dashboard de encuestas con visualizaciones de datos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5ItNzdZQ3f4Ku39xha8JVkpRknPmikBYv7elIXrfzDr_G09DEzHzux9a1-cXv0UqAusUkF_MhZcX_vOOis73L844py2C9bFo1SmIuGE3DJEVUl8keFmmxFwiQWoNvPhRxSywYD0C3-XFqCIACEQU8zvTUGrqTHjMdP5z6whQIvCdsyRaI8gB3wz9JLQoJMmcR21_s1HCihIZOqM5sjWi7fPmKDBsW1quGvgM9S8FT516ii7IxxKjoGRMVCEaJbpFNyCdzK1KV2u_N">
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--contact" id="contacto">
-      <div class="container">
-        <h2 class="section__title">Contacto</h2>
-        <div class="contact-content">
-          <p class="contact__intro">¿Quieres mejorar las evaluaciones en tu organización? Escríbenos o llámanos.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-list__label">Email</span>
-              <a href="mailto:info.jjvs@gmail.com" class="contact-list__link">info.jjvs@gmail.com</a>
+    <section class="py-section-gap-lg max-w-container-max mx-auto px-gutter" id="caracteristicas">
+      <div class="text-center mb-section-gap-sm">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Soluciones Integrales</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">Pensado para equipos de RRHH y líderes que quieren tomar decisiones basadas en datos.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div class="md:col-span-8 group bg-white p-8 rounded-3xl border border-outline-variant/30 hover:border-primary transition-all duration-300 hover:shadow-2xl">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-1">
+              <span class="material-symbols-outlined text-4xl text-primary mb-4">groups</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Evaluación 360°</h3>
+              <p class="text-on-surface-variant mb-6">Feedback completo: jefatura, pares, subordinados y autoevaluación. Asignaciones y reportes por rol y por evaluado.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">Competencias</span>
+                <span class="px-3 py-1 bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">Feedback Anónimo</span>
+                <span class="px-3 py-1 bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">Planes de Acción</span>
+              </div>
+            </div>
+            <div class="w-full md:w-64 h-48 bg-surface-container-low rounded-2xl overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipo colaborando en evaluación 360°" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9m5hJtIo-uIdBufmBPbbImR-JK8oFs01-omrZbUf1O0zEm1jC12y8YcY2boh6cSymzwqrfIiGRaxjcS-ewH970QoHDiNC9BS4u2swQwtXpyd_VgS-VWVDC_ciDnEHZLqHOpF1PeoBDfBS8zuZg8nQLmCePEzw6mYZI_W7QHSD7B2-rAkmw9MAP5fuzfDhzv96BHPKhx2EqbDegAt8XBHIeS13sHQVoe3sNCNcBWAyDn52zka1bTQz57LEsDz8rM-nzkNC-mw8ZW1e">
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-4 bg-white p-8 rounded-3xl border border-outline-variant/30 hover:border-primary transition-all duration-300 hover:shadow-2xl flex flex-col justify-between">
+          <div>
+            <span class="material-symbols-outlined text-4xl text-primary mb-4">person_search</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Evaluación 180°</h3>
+            <p class="text-on-surface-variant">Jefatura, pares y autoevaluación. Ideal para equipos que no requieren feedback de subordinados.</p>
+          </div>
+          <div class="mt-8 pt-8 border-t border-outline-variant/20">
+            <a class="text-primary font-bold flex items-center gap-2 group/link" href="#caracteristicas">
+              Saber más <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-4 bg-primary text-on-primary p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 opacity-10">
+            <span class="material-symbols-outlined text-[200px]">psychology</span>
+          </div>
+          <div class="relative z-10">
+            <span class="material-symbols-outlined text-4xl mb-4">sentiment_satisfied</span>
+            <h3 class="font-headline-md text-headline-md mb-3">Clima Laboral</h3>
+            <p class="opacity-90">Encuestas por participante, sin matriz evaluador-evaluado. Resultados agregados por dimensión.</p>
+          </div>
+          <div class="mt-8 relative z-10">
+            <a class="inline-block bg-white text-primary font-bold px-6 py-2.5 rounded-lg shadow-lg hover:opacity-90 transition-opacity" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Medir ahora</a>
+          </div>
+        </div>
+        <div class="md:col-span-8 bg-white p-8 rounded-3xl border border-outline-variant/30 hover:border-primary transition-all duration-300 hover:shadow-2xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 h-full">
+            <div class="flex flex-col justify-center">
+              <span class="material-symbols-outlined text-4xl text-primary mb-4">analytics</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Plantillas y Reportes</h3>
+              <p class="text-on-surface-variant">Plantillas con páginas y secciones. Reportes por tipo de proceso: resumen, por evaluado y por rol.</p>
+            </div>
+            <div class="flex items-center justify-center bg-surface-container rounded-2xl p-4">
+              <div class="space-y-3 w-full">
+                <div class="h-2 bg-primary/20 rounded-full w-full"></div>
+                <div class="h-2 bg-primary/40 rounded-full w-3/4"></div>
+                <div class="h-2 bg-primary/10 rounded-full w-5/6"></div>
+                <div class="h-2 bg-primary/30 rounded-full w-1/2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-24">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="text-primary font-display-hero text-4xl md:text-5xl mb-2">98%</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Satisfacción</p>
+          </div>
+          <div>
+            <p class="text-primary font-display-hero text-4xl md:text-5xl mb-2">2M+</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Encuestas enviadas</p>
+          </div>
+          <div>
+            <p class="text-primary font-display-hero text-4xl md:text-5xl mb-2">150k</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Usuarios activos</p>
+          </div>
+          <div>
+            <p class="text-primary font-display-hero text-4xl md:text-5xl mb-2">24/7</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Soporte técnico</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-lg max-w-container-max mx-auto px-gutter" id="planes">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Planes flexibles para cada etapa</h2>
+        <p class="text-on-surface-variant">Elige la opción que mejor se adapte a tu equipo.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl border border-outline-variant/30 flex flex-col h-full hover:shadow-xl transition-all">
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Básico</h3>
+          <p class="text-on-surface-variant mb-6 text-sm">Ideal para empezar o equipos pequeños.</p>
+          <div class="mb-8">
+            <span class="text-4xl font-bold text-on-surface">Gratis</span>
+          </div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              1 proceso activo
             </li>
-            <li>
-              <span class="contact-list__label">Teléfono</span>
-              <a href="tel:+56933481810" class="contact-list__link">+56 9 xxxxxxxx</a>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Hasta 20 participantes
             </li>
-            <li>
-              <span class="contact-list__label">Horario</span>
-              <span class="contact-list__value">Lun - Vie: 9:00 AM - 6:00 PM</span>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Evaluación 360° y 180°
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Reportes básicos
             </li>
           </ul>
-          <a href="mailto:info.jjvs@gmail.com?subject=App%20Encuestas" class="btn btn--primary contact__cta">Enviar mensaje</a>
+          <a class="w-full py-3 border-2 border-outline-variant text-on-surface-variant font-bold rounded-xl hover:bg-surface-container transition-all text-center" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Comenzar</a>
+        </div>
+        <div class="bg-white p-8 rounded-3xl border-2 border-primary flex flex-col h-full shadow-2xl relative transform md:-translate-y-4">
+          <div class="absolute top-0 right-8 transform -translate-y-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-label-caps font-label-caps">MÁS POPULAR</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Profesional</h3>
+          <p class="text-on-surface-variant mb-6 text-sm">Para equipos de RRHH y múltiples procesos.</p>
+          <div class="mb-8">
+            <span class="text-4xl font-bold text-on-surface">Consultar</span>
+            <span class="text-on-surface-variant">/mes</span>
+          </div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-center gap-3 text-on-surface">
+              <span class="material-symbols-outlined text-primary fill-icon">check_circle</span>
+              Procesos ilimitados
+            </li>
+            <li class="flex items-center gap-3 text-on-surface">
+              <span class="material-symbols-outlined text-primary fill-icon">check_circle</span>
+              Participantes ilimitados
+            </li>
+            <li class="flex items-center gap-3 text-on-surface">
+              <span class="material-symbols-outlined text-primary fill-icon">check_circle</span>
+              360°, 180°, clima y personalizado
+            </li>
+            <li class="flex items-center gap-3 text-on-surface">
+              <span class="material-symbols-outlined text-primary fill-icon">check_circle</span>
+              Reportes por tipo de proceso
+            </li>
+            <li class="flex items-center gap-3 text-on-surface">
+              <span class="material-symbols-outlined text-primary fill-icon">check_circle</span>
+              Carga masiva por Excel
+            </li>
+          </ul>
+          <a class="w-full py-4 brand-gradient text-on-primary font-bold rounded-xl shadow-lg hover:opacity-90 transition-all text-center" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Elegir plan</a>
+        </div>
+        <div class="bg-white p-8 rounded-3xl border border-outline-variant/30 flex flex-col h-full hover:shadow-xl transition-all">
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Empresa</h3>
+          <p class="text-on-surface-variant mb-6 text-sm">Soluciones a medida para organizaciones.</p>
+          <div class="mb-8">
+            <span class="text-on-surface font-label-caps">CONTACTAR</span>
+          </div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Todo lo de Profesional
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Soporte prioritario
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Integraciones a medida
+            </li>
+            <li class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-teal-glow fill-icon">check_circle</span>
+              Capacitación incluida
+            </li>
+          </ul>
+          <a class="w-full py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/5 transition-all text-center" href="#contacto">Solicitar información</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap-lg bg-surface-container-low overflow-hidden relative" id="contacto">
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 p-10 md:p-16 brand-gradient text-on-primary">
+            <h2 class="font-headline-lg text-headline-lg mb-6">Hablemos de tu equipo</h2>
+            <p class="opacity-90 mb-12 max-w-md">¿Quieres mejorar las evaluaciones en tu organización? Escríbenos o llámanos y te ayudamos a diseñar la mejor estrategia de retroalimentación.</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">mail</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">EMAIL</p>
+                  <a class="text-lg font-bold hover:underline" href="mailto:info.jjvs@gmail.com">info.jjvs@gmail.com</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">call</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">TELÉFONO</p>
+                  <a class="text-lg font-bold hover:underline" href="tel:+56988914025">+56 9 8891 4025</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl">schedule</span>
+                <div>
+                  <p class="font-label-caps text-label-caps opacity-70 mb-1">HORARIO</p>
+                  <p class="text-lg font-bold">Lun - Vie: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2 p-10 md:p-16">
+            <form class="space-y-6" id="contact-form">
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="nombre">NOMBRE COMPLETO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="nombre" name="nombre" placeholder="Juan Pérez" type="text" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="email">CORREO CORPORATIVO</label>
+                <input class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="email" name="email" placeholder="juan@empresa.com" type="email" required>
+              </div>
+              <div>
+                <label class="block font-label-caps text-label-caps text-on-surface-variant mb-2" for="mensaje">MENSAJE</label>
+                <textarea class="w-full bg-surface-container px-4 py-3 rounded-lg border-transparent focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none" id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tus necesidades..." rows="4" required></textarea>
+              </div>
+              <button class="w-full brand-gradient text-on-primary font-bold py-4 rounded-xl shadow-lg hover:opacity-90 active:scale-95 transition-all" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__brand">
-        <a href="index.html" class="footer__logo-text">JJV SOLUTIONS</a>
+  <footer class="bg-inverse-surface py-section-gap-sm border-t border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-gutter">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg mb-16">
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center gap-2 mb-6">
+            <a href="index.html" aria-label="JJV SOLUTIONS - Inicio">
+              <img alt="JJV SOLUTIONS Logo" class="h-8 brightness-0 invert" src="assets/logo_jjvs.png">
+            </a>
+          </div>
+          <p class="text-surface-variant/70 text-sm leading-relaxed">
+            Transformando la gestión del talento a través de datos y retroalimentación accionable.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Producto</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#caracteristicas">Características</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#planes">Planes</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="https://app.surviedo.com" target="_blank" rel="noopener noreferrer">Iniciar sesión</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Empresa</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="index.html">Inicio</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="index.html#saas">Soluciones SaaS</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="cotizaciones.html">Cotizaciones</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-inverse-primary font-bold mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Privacy Policy</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Terms of Service</a></li>
+            <li><a class="text-surface-variant hover:text-teal-glow transition-colors" href="#">Cookies</a></li>
+          </ul>
+        </div>
       </div>
-      <nav class="footer__nav" aria-label="Enlaces del pie">
-        <a href="#caracteristicas" class="footer__link">Características</a>
-        <a href="#planes" class="footer__link">Planes</a>
-        <a href="#contacto" class="footer__link">Contacto</a>
-        <a href="https://app.surviedo.com" class="footer__link" target="_blank" rel="noopener noreferrer">Iniciar sesión</a>
-      </nav>
-      <p class="footer__schedule">Lun - Vie: 9:00 AM - 6:00 PM</p>
-      <p class="footer__copy">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+      <div class="pt-8 border-t border-surface-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-surface-variant/50 text-sm">&copy; <span id="year"></span> JJV SOLUTIONS. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="mailto:info.jjvs@gmail.com" aria-label="Email">
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+          <a class="text-surface-variant hover:text-on-primary transition-colors" href="tel:+56988914025" aria-label="Teléfono">
+            <span class="material-symbols-outlined">call</span>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    window.addEventListener('scroll', function () {
+      var header = document.getElementById('header');
+      if (!header) return;
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg', 'bg-surface/95');
+        header.classList.remove('bg-surface/80');
+      } else {
+        header.classList.remove('shadow-lg', 'bg-surface/95');
+        header.classList.add('bg-surface/80');
+      }
+    });
+
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+        var mensaje = document.getElementById('mensaje').value;
+        var subject = encodeURIComponent('App Encuestas - Consulta de ' + nombre);
+        var body = encodeURIComponent('Nombre: ' + nombre + '\nEmail: ' + email + '\n\n' + mensaje);
+        window.location.href = 'mailto:info.jjvs@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    }
+  </script>
 </body>
 </html>
